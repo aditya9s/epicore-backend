@@ -1,0 +1,102 @@
+API Contract Documentation
+
+1. Get OTP (/get_otp)
+Endpoint: /get_otp
+Method: POST
+Request Payload:
+Content-Type: application/json
+Body: {
+  "mobile_number": "+91**********"
+}
+
+Response:
+Success (Status Code: 200):
+
+{
+  "success": true,
+  "message": "OTP sent successfully"
+}
+
+Failure (Status Code: 400):
+
+{
+  "success": false,
+  "message": "Mobile number is required"
+}
+
+{
+  "success": false,
+  "message": "User does not exist. Please create an account"
+}
+
+{
+  "success": false,
+  "message": "Maximum OTP limit reached for this session"
+}
+
+2. Validate OTP (/validate_otp)
+Endpoint: /validate_otp
+Method: POST
+Request Payload:
+Content-Type: application/json
+Body: {
+  "mobile_number": "string",
+  "otp": "string"
+}
+
+Response:
+Success (Status Code: 200):
+
+{
+  "success": true,
+  "message": "OTP validated successfully"
+}
+Failure (Status Code: 400):
+
+{
+  "success": false,
+  "message": "Mobile number and OTP are required"
+}
+
+{
+  "success": false,
+  "message": "Invalid OTP"
+}
+
+3. Register User (/register)
+Endpoint: /register
+Method: POST
+Request Payload:
+Content-Type: application/json
+Body: {
+  "name": "string",
+  "age": integer,
+  "city": "string",
+  "height": float,
+  "weight": float,
+  "mobile_number": "string"
+}
+
+Response:
+Success (Status Code: 200):
+
+{
+  "success": true,
+  "message": "User registered successfully"
+}
+Failure (Status Code: 400):
+
+{
+  "success": false,
+  "message": "User already exists with this mobile number"
+}
+Error (Status Code: 500):
+
+{
+  "success": false,
+  "message": "Registration failed. [Error Message]"
+}
+
+aws-pwd = Aditya@82988
+
+aws-db = Aditya, Adi_epicore
